@@ -1,6 +1,7 @@
 module.exports = {
     siteMetadata: {
         title: "Scandiweb",
+        subtitle: "Test site"
     },
     plugins: [
         {

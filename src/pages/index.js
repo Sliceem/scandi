@@ -1,12 +1,43 @@
-import * as React from "react"
-import { main } from "../styles/HomePage.module.scss"
+import * as React from "react";
+import {useStaticQuery, graphql, Link as GatsbyLink} from "gatsby";
+import Link from "gatsby-link";
 
-const IndexPage = () => {
-  return (
-    <main >
-      <div className={main}>Home Page</div>
-    </main>
-  )
-}
+const HomePage = () => {
+    const data = useStaticQuery(graphql`
+        {
+            allWpPost {
+                nodes {
+                    id
+                    title
+                    excerpt
+                    uri
+                }
+            }
+        }
+    `);
 
-export default IndexPage
+    const {allWpPost} = data;
+
+    console.log('***', data);
+
+    return (
+        <div>
+
+            <div>
+                {allWpPost.nodes.map(({id, title, excerpt, uri}) => (
+                    <div key={id}>
+                        <div>{title}</div>
+                        <div>
+                            <div dangerouslySetInnerHTML={{__html: excerpt}}/>
+                        </div>
+                        <div>
+                            <Link to={uri}>Read More >> </Link>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default HomePage;
