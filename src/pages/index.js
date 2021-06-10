@@ -1,6 +1,7 @@
 import * as React from "react";
-import {useStaticQuery, graphql, Link as GatsbyLink} from "gatsby";
+import {useStaticQuery, graphql} from "gatsby";
 import Link from "gatsby-link";
+import { main } from "../styles/HomePage.module.scss"
 
 const HomePage = () => {
     const data = useStaticQuery(graphql`
@@ -26,7 +27,7 @@ const HomePage = () => {
             <div>
                 {allWpPost.nodes.map(({id, title, excerpt, uri}) => (
                     <div key={id}>
-                        <div>{title}</div>
+                        <div className={main}>{title}</div>
                         <div>
                             <div dangerouslySetInnerHTML={{__html: excerpt}}/>
                         </div>
