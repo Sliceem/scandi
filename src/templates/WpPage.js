@@ -1,21 +1,22 @@
 import React from "react"
 import {graphql} from "gatsby";
-import {Helmet} from "react-helmet/es/Helmet";
 import Link from "gatsby-link";
 
 const WpPost = ({data}) => {
-  const {wpPost} = data;
+  const {wpPage: {content, title}} = data;
+
+  const createMarkup = () => {
+    return {__html: content};
+  }
+
   return (
     <>
-      <Helmet>
-        <meta name="description" content={wpPost?.seo?.metaDesc}/>
-      </Helmet>
       <div>
         <div>
-          {wpPost.title}
+          {title}
         </div>
         <div>
-          <div dangerouslySetInnerHTML={{__html: wpPost.content}}/>
+          <div dangerouslySetInnerHTML={createMarkup()}/>
         </div>
         <Link to="/">{`<< Back to Blog`}</Link>
       </div>
@@ -26,8 +27,8 @@ const WpPost = ({data}) => {
 export default WpPost;
 
 export const query = graphql`
-    query PostById($id: String) {
-        wpPost(id: {eq: $id}) {
+    query PageById($id: String) {
+        wpPage(id: {eq: $id}) {
             title
             content
         }
