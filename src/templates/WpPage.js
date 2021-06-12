@@ -2,7 +2,7 @@ import React from "react"
 import {graphql} from "gatsby";
 import Link from "gatsby-link";
 
-const WpPost = ({data}) => {
+const WpPage = ({data}) => {
   const {wpPage: {content, title}} = data;
 
   const createMarkup = () => {
@@ -24,7 +24,7 @@ const WpPost = ({data}) => {
   )
 }
 
-export default WpPost;
+export default WpPage;
 
 export const query = graphql`
     query PageById($id: String) {

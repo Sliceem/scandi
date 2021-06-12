@@ -2,6 +2,7 @@ import * as React from "react";
 import {Query} from "./HomePage.query"
 import Link from "gatsby-link";
 import {main, postTitle} from "./HomePage.module.scss"
+import { POST } from "../../utils/const";
 
 const HomePageComponent = () => {
   const {allWpPost: {nodes}} = Query();
@@ -17,7 +18,7 @@ const HomePageComponent = () => {
               <div dangerouslySetInnerHTML={{__html: excerpt}}/>
             </div>
             <div>
-              <Link to={uri}>Read More >> </Link>
+              <Link to={POST + uri}>Read More >> </Link>
             </div>
           </div>
         ))}

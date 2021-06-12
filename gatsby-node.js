@@ -23,7 +23,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 
   allWpPost.nodes.map(post => {
     actions.createPage({
-      path: post.uri,
+      path: `/post/${post.uri}/`,
       component: postTemplate,
       context: post
     })
@@ -53,7 +53,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 
   allWpPage.edges.map(page => {
     actions.createPage({
-      path: page.node.uri,
+      path:`/page/${page.node.uri}/`,
       component: pageTemplate,
       context: page
     })
