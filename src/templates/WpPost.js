@@ -2,6 +2,7 @@ import React from "react"
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet/es/Helmet";
 import Link from "gatsby-link";
+import {TEST} from "../utils/const";
 
 const WpPost = ({data}) => {
   const {wpPost} = data;
@@ -17,7 +18,7 @@ const WpPost = ({data}) => {
         <div>
           <div dangerouslySetInnerHTML={{__html: wpPost.content}}/>
         </div>
-        <Link to="/">{`<< Back to Blog`}</Link>
+        <Link to={TEST}>{`<< Back to Blog`}</Link>
       </div>
     </>
   )

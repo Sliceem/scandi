@@ -1,12 +1,12 @@
 import * as React from "react";
-import HomePage from "../component/HomePage"
 import Navigation from "../component/Navigation"
+import {Link} from "gatsby";
 
 const App = () => {
   return (
     <>
       <Navigation/>
-      <HomePage/>
+      <Link to={"/page/test"}>LIST of POSTS</Link>
     </>
   );
 };

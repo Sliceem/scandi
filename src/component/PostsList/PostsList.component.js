@@ -1,10 +1,10 @@
 import * as React from "react";
-import {Query} from "./HomePage.query"
+import {Query} from "./PostsList.query"
 import Link from "gatsby-link";
-import {main, postTitle} from "./HomePage.module.scss"
+import {main, postTitle} from "./PostsList.module.scss"
 import { POST } from "../../utils/const";
 
-const HomePageComponent = () => {
+const PostsListComponent = () => {
   const {allWpPost: {nodes}} = Query();
 
   return (
@@ -27,4 +27,4 @@ const HomePageComponent = () => {
   );
 };
 
-export default HomePageComponent;
+export default PostsListComponent;

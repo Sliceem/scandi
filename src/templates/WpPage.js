@@ -1,6 +1,7 @@
 import React from "react"
 import {graphql} from "gatsby";
 import Link from "gatsby-link";
+import {ORIGIN} from "../utils/const";
 
 const WpPage = ({data}) => {
   const {wpPage: {content, title}} = data;
@@ -18,7 +19,7 @@ const WpPage = ({data}) => {
         <div>
           <div dangerouslySetInnerHTML={createMarkup()}/>
         </div>
-        <Link to="/">{`<< Back to Blog`}</Link>
+        <Link to={ORIGIN}>{`<< Back to Main`}</Link>
       </div>
     </>
   )

@@ -7,7 +7,6 @@ import { PAGE } from "../../utils/const";
 const NavigationComponent = () => {
   const {allWpPage: {edges}} = Query();
 
-
   return (
     <>
       <p>MENU</p>
